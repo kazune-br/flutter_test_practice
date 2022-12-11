@@ -25,8 +25,13 @@ class TodoListPage extends HookConsumerWidget {
           itemCount: data.todoList.length,
           itemBuilder: (context, index) {
             final todo = data.todoList[index];
-            return ListTile(
-              title: Text(todo.title ?? ''),
+            return Card(
+              child: ListTile(
+                leading: const Icon(Icons.book),
+                title: Text(todo.title ?? ""),
+                trailing: const Icon(Icons.more_vert),
+                onTap: () {},
+              ),
             );
           },
         ),
