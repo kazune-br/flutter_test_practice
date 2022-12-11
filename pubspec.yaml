@@ -43,6 +43,11 @@ dev_dependencies:
   freezed: ^2.2.1
   flutter_lints: ^2.0.0
   import_sorter: ^4.6.0
+  mocktail: ^0.3.0
+
+# https://github.com/felangel/mocktail/issues/105#issuecomment-1008749295
+dependency_overrides:
+  test_api: 0.4.17
 
 # The following section is specific to Flutter packages.
 flutter:
