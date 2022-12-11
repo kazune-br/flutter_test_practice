@@ -59,7 +59,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/facilities/${id}',
+              '/todos/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
