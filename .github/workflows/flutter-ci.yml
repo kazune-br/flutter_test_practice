@@ -1,0 +1,26 @@
+name: Flutter CI
+
+on:
+  push:
+
+env:
+  FLUTTER_VERSION: 3.3.9
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+          cache: true
+      - name: Run pub get
+        run: flutter pub get
+      - name: Run analyze
+        run: flutter analyze
+      - name: Run format check
+        run: flutter format --set-exit-if-changed lib/
+      - name: Run import sort check
+        run: flutter pub run import_sorter:main lib/ --exit-if-changed
