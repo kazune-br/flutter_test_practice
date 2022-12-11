@@ -24,3 +24,17 @@ jobs:
         run: flutter format --set-exit-if-changed lib/
       - name: Run import sort check
         run: flutter pub run import_sorter:main lib\/* --exit-if-changed
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+          cache: true
+      - name: Run pub get
+        run: flutter pub get
+      - name: Run test
+        run: flutter test --reporter expanded --web-renderer html
