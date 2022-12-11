@@ -1,3 +1,5 @@
+.PHONY: setup fix build-runner run-ck run-html test
+
 setup:
 	asdf install
 	flutter pub get
@@ -21,3 +23,6 @@ run-ck:
 
 run-html:
 	flutter run -d chrome --web-renderer html
+
+test:
+	flutter test --reporter expanded --web-renderer html
