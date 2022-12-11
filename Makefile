@@ -14,6 +14,8 @@ build-runner:
 sort-import:
 	flutter pub run import_sorter:main lib\/*
 
+fix: format analyze sort-import
+
 run-ck:
 	flutter run -d chrome --web-renderer canvaskit
 
